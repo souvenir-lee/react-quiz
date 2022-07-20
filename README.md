@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# React Quiz 
+Quiz game made by React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 요구 사항
+**[필수 구현]**
+- [x] 사용자는 '퀴즈 풀기' 버튼을 클릭하여 퀴즈 풀기를 시작할 수 있다.
+- [x] 사용자는 문항에 대한 답안을 4개 보기 중에 선택할 수 있다.
+- [x] 사용자는 답안을 선택하면 다음 문항을 볼 수 있다.
+  - [x] 답안 선택 후 다음 문항 버튼을 볼 수 있다.
+  - [x] 답안이 맞았는지 틀렸는지 바로 알 수 있다.
+  - [x] 다음 문항 버튼을 클릭하여 다음 문항으로 이동할 수 있다.
+- [x] 모든 문항을 다 풀면 사용자는 다음과 같은 결과 정보를 볼 수 있다.
+  - [x] 퀴즈를 마칠 때까지 소요된 시간
+  - [x] 정답 개수
+  - [x] 오답 수
 
-## Available Scripts
+**[추가 구현]**
+- [ ] 정 오답에 대한 비율을 차트로 표기
+- [ ] 다시 풀기
+- [ ] 오답 노트
 
-In the project directory, you can run:
+- [ ] lazy loading 시도하기
+- [ ] 문제에서 특수문자 인코딩하기
+- [ ] 타이머 보이기/숨기기 기능도 넣기
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Reference
+- (Lazy Loading)[https://www.loginradius.com/blog/engineering/lazy-loading-in-react/#:~:text=In%20essence%2C%20lazy%20loading%20means,it%20at%20the%20same%20time.]
