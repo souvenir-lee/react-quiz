@@ -1,7 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './component/header/Header';
-import Footer from './component/footer/Footer'
 import Home from './page/home/Home'
 import Quiz from './page/Quiz/Quiz'
 import Result from './page/Result/Result'
@@ -16,16 +14,22 @@ function App() {
 
   const fetchQuestions = async (category = "", difficulty = "") => {
     const { data } = await axios.get(
-      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`
+      `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple&encode=base64`
     )
+    data?.results.forEach(result => {
+      console.log('result :>>', result)
+      result.category = atob(result.category)
+      result.correct_answer = atob(result.correct_answer)
+      result.incorrect_answers = result.incorrect_answers.map(v => v = atob(v))
+      result.question = atob(result.question)
+    })
+    console.log('before',data?.results)
     setQuestions(data?.results)
   }
 
   return (
     <BrowserRouter>
       <div className="app">
-        <Header/>
-
         <Routes>
           <Route 
             path="/" exact 
@@ -38,7 +42,6 @@ function App() {
           />
           <Route path="/quiz" exact element={
               <Quiz 
-                name={name}
                 questions={questions} 
                 score={score}
                 setScore={setScore}
@@ -59,11 +62,8 @@ function App() {
               />
             }
           />
-        </Routes>
-
-
+        </Routes>      
       </div>
-      <Footer/>
     </BrowserRouter>
   );
 }

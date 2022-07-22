@@ -1,7 +1,9 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { Button } from "@mui/material"
-import "./Result.css"
+import HomeIcon from '@mui/icons-material/Home';
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import ReplayIcon from '@mui/icons-material/Replay';
+import Chart from '../../component/chart/Chart'
 
 const Result = ({ name, questions, score, setScore, time, setTime }) => {
   const navigate = useNavigate()
@@ -26,22 +28,67 @@ const Result = ({ name, questions, score, setScore, time, setTime }) => {
     return `${min}:${sec}`
   }
 
-  return (
-    <div className="result">
-      <span className="title">Final Score : {score}</span>
-      <span className="title">Wrong Answer : { questions.length - score}</span>
-      <span> Total Elapsed Time : {formatedTime()} </span>
+  if(!questions) questions = []
 
-      <Button
-        variant="contained"
-        color="secondary"
-        size="large"
-        style={{ alignSelf: "center", marginTop: 20}}
-        herf="/"
-        onClick={handleGoHome}
-      >
-        Go to Home
-      </Button>
+  return (
+    <div div className="bg-slate-100 h-screen w-screen flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-lg w-full">
+
+        <div className="text-center mb-16">
+          <div className="font-medium font-sans text-5xl">Conguratulation,</div>
+          <div className="font-sans font-medium text-2xl my-4">{name}</div>
+        </div>
+
+        <div className="bg-white shadow-md rounded-md py-4 px-6 mb-5">
+          <div className="text-center mb-2 font-sans">Score</div>
+          <div className="flex justify-center mt-8">
+            <Chart score={score} worngScore={questions.length - score} />
+          </div>
+          <div className="flex justify-between">
+            <div>
+              <span className="text-xs mr-2">Correct Answer :</span> 
+              <span className="font-medium text-sm">{score}</span>
+            </div>
+            <div>
+              <span className="text-xs mr-2">Wrong Answer :</span> 
+              <span className="font-medium text-sm">{questions.length - score}</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div className="bg-white shadow-md rounded-md py-4 text-center mb-16">
+          <div className="mb-2 font-sans">Total Elapsed Time</div>
+          <div className="font-sans text-indigo-500 font-semibold">{formatedTime()}</div>
+        </div>
+
+        <div className="flex justify-between">
+          <button
+            type="button"
+            onClick={handleGoHome}
+            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            <HomeIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
+            Go to Home
+          </button>
+          <button
+            type="button"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            <DriveFileRenameOutlineIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
+            Wrong Note
+          </button>
+          <button
+            type="button"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            <ReplayIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
+            Retry
+          </button>
+        </div>
+        
+
+      </div>
     </div>
   )
 }
