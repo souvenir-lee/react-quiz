@@ -18,7 +18,7 @@ Quiz game made by React
 
 **[추가 구현]**
 - [x] 정 오답에 대한 비율을 차트로 표기
-- [ ] 다시 풀기
+- [x] 다시 풀기
 - [ ] 오답 노트
 
 - [x] lazy loading 시도하기

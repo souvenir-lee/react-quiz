@@ -1,21 +1,22 @@
 import { Fragment } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CloseIcon from '@mui/icons-material/Close';
-import WarningIcon from '@mui/icons-material/Warning';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import { Transition, Dialog } from '@headlessui/react'
 
-const AlertQuit = ({ isOpen, setIsOpen, currQuestion, selected }) => {
+const AlertRetry = ({ isOpen, setIsOpen, setScore, setTime }) => {
   const navigate = useNavigate()
 
   function closeModal() {
     setIsOpen(false)
   }
 
-  const handleQuit = (event) => {
-    console.log('handleQuit', currQuestion, selected)
+  const handleGoToQuiz = (event) => {
     event.preventDefault()
     setIsOpen(false)
-    navigate('/result')
+    setScore(0)
+    setTime(0)
+    navigate('/quiz')
   }
   
   return (
@@ -50,7 +51,7 @@ const AlertQuit = ({ isOpen, setIsOpen, currQuestion, selected }) => {
                   <button
                     type="button"
                     className="absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
-                    onClick={() => setIsOpen(false)}
+                    onClick={closeModal}
                   >
                     <span className="sr-only">Close</span>
                     <CloseIcon className="h-6 w-6" aria-hidden="true" />
@@ -58,17 +59,17 @@ const AlertQuit = ({ isOpen, setIsOpen, currQuestion, selected }) => {
 
                   <div>
                     <div className="flex justify-center my-5">
-                      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                        <WarningIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
+                      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-slate-200 sm:mx-0 sm:h-10 sm:w-10">
+                        <QuestionMarkIcon className="h-6 w-6 text-slate-600" aria-hidden="true" />
                       </div>
                     </div>
                     <div className="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
                       <Dialog.Title as="h3" className="text-center text-lg leading-6 font-medium text-gray-900">
-                        Are you sure you want to get out of here?
+                        Are you sure you want to start over?
                       </Dialog.Title>
                       <div className="my-2">
                         <p className="text-center text-sm text-gray-500">
-                          If you leave now, your score will not be saved.
+                          When you restart, the recorded score disappears.
                         </p>
                       </div>
                     </div>
@@ -84,10 +85,10 @@ const AlertQuit = ({ isOpen, setIsOpen, currQuestion, selected }) => {
                   </button>
                   <button
                     type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent shadow-sm px-3 py-1 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={handleQuit}
+                    className="inline-flex justify-center rounded-md border border-transparent shadow-sm px-3 py-1 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
+                    onClick={handleGoToQuiz}
                   >
-                    Quit
+                    Retry
                   </button>
                 </div>
               </Dialog.Panel>
@@ -99,4 +100,4 @@ const AlertQuit = ({ isOpen, setIsOpen, currQuestion, selected }) => {
   )
 }
 
-export default AlertQuit
+export default AlertRetry

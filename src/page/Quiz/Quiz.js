@@ -62,9 +62,7 @@ const Quiz = ({ questions, score, setScore, time, setTime}) => {
                 isOpen={isOpen} 
                 setIsOpen={setIsOpen} 
                 currQuestion={currQuestion}
-                setCurrQuestion={setCurrQuestion}
                 selected={selected}
-                setSelected={setSelected}
               />
 
               <Question

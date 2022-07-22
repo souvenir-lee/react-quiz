@@ -4,7 +4,6 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
-  Tooltip,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -12,7 +11,6 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
-  Tooltip,
 );
 
 
@@ -46,10 +44,9 @@ const Chart = ({ score, worngScore }) => {
   const options = {
     indexAxis: 'y',
     plugins: {
-      title: {
-        display: false,
-        text: 'Ratio of Correct Answers',
-      },
+      title: { display: false },
+      tooltip: { enabled: false },
+      hover: { mode: null },
     },
     responsive: false,
     scales: {

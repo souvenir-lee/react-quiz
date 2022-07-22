@@ -1,11 +1,13 @@
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import Chart from '../../component/chart/Chart'
+import AlertRetry from '../../component/dialog/AlertRetry'
 import HomeIcon from '@mui/icons-material/Home';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import ReplayIcon from '@mui/icons-material/Replay';
-import Chart from '../../component/chart/Chart'
 
 const Result = ({ name, questions, score, setScore, time, setTime }) => {
+  const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -16,6 +18,10 @@ const Result = ({ name, questions, score, setScore, time, setTime }) => {
     setScore(0)
     setTime(0)
     navigate('/')
+  }
+
+  const onClickRetryDialog = () => {
+    setIsOpen(true)
   }
 
   const formatedTime = () => {
@@ -33,6 +39,8 @@ const Result = ({ name, questions, score, setScore, time, setTime }) => {
   return (
     <div div className="bg-slate-100 h-screen w-screen flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-lg w-full">
+
+        <AlertRetry isOpen={isOpen} setIsOpen={setIsOpen} setScore={setScore} setTime={setTime}/>
 
         <div className="text-center mb-16">
           <div className="font-medium font-sans text-5xl">Conguratulation,</div>
@@ -80,6 +88,7 @@ const Result = ({ name, questions, score, setScore, time, setTime }) => {
           </button>
           <button
             type="button"
+            onClick={onClickRetryDialog}
             className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             <ReplayIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
