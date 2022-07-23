@@ -1,6 +1,9 @@
 # React Quiz 
 Quiz game made by React
 
+## Deploy by Firebase
+- url : react-quiz-app-90c31.web.app
+
 ## Stack, Libary
 - React.js, chart.js, axios, material ui, tailwind css
 
