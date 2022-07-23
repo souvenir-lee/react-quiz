@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
-const Home = ({ name, setName, fetchQuestions }) => {
+const Home = ({ name, setName, fetchQuestions, showStopWatch, setShowStopWatch }) => {
   const [categoryOptions, setCategoryOptions] = useState("")
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const [showStopWatch, setShowStopWatch] = useState(false);
   
   const navigate = useNavigate()
   

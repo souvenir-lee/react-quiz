@@ -3,8 +3,9 @@ Quiz game made by React
 
 ## Stack, Libary
 - React.js, chart.js, axios, material ui, tailwind css
-## 요구 사항
-**[필수 구현]**
+
+## Feature
+1. Basic
 - [x] 사용자는 '퀴즈 풀기' 버튼을 클릭하여 퀴즈 풀기를 시작할 수 있다.
 - [x] 사용자는 문항에 대한 답안을 4개 보기 중에 선택할 수 있다.
 - [x] 사용자는 답안을 선택하면 다음 문항을 볼 수 있다.
@@ -16,15 +17,14 @@ Quiz game made by React
   - [x] 정답 개수
   - [x] 오답 수
 
-**[추가 구현]**
+2. Options
 - [x] 정 오답에 대한 비율을 차트로 표기
 - [x] 다시 풀기
 - [x] 오답 노트
-
 - [x] lazy loading 시도하기
 - [x] Tailwind css 적용하기
 - [x] 문제에서 특수문자 인코딩하기
-- [ ] 타이머 보이기/숨기기 기능도 넣기
+- [x] 타이머 보이기/숨기기 기능도 넣기
 
 ## Design
 - [Figma URL](https://www.figma.com/file/85DgH9wo3MVlIz1udBbY1N/Untitled?node-id=2%3A6)

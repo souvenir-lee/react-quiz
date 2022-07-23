@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import WarningIcon from '@mui/icons-material/Warning';
 import { Transition, Dialog } from '@headlessui/react'
 
-const AlertQuit = ({ isOpen, setIsOpen, currQuestion, selected }) => {
+const AlertQuit = ({ isOpen, setIsOpen, currQuestion, selected, setShowStopWatch }) => {
   const navigate = useNavigate()
 
   function closeModal() {
@@ -15,6 +15,7 @@ const AlertQuit = ({ isOpen, setIsOpen, currQuestion, selected }) => {
     console.log('handleQuit', currQuestion, selected)
     event.preventDefault()
     setIsOpen(false)
+    setShowStopWatch(false)
     navigate('/result')
   }
   

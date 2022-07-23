@@ -5,7 +5,6 @@ import Quiz from './page/Quiz/Quiz'
 import Result from './page/Result/Result'
 import WrongNote from './page/WrongNote/WrongNote';
 import axios from 'axios';
-import './App.css';
 
 function App() {
   const [name, setName] = useState("")
@@ -14,6 +13,7 @@ function App() {
   const [score, setScore] = useState(0)
   const [time, setTime] = useState(0)
   const [category, setCategory] = useState("")
+  const [showStopWatch, setShowStopWatch] = useState(false);
 
   const fetchQuestions = async (category = "", difficulty = "") => {
     const { data } = await axios.get(
@@ -40,6 +40,8 @@ function App() {
             element={
               <Home name={name} 
                 setName={setName} 
+                showStopWatch={showStopWatch} 
+                setShowStopWatch={setShowStopWatch}
                 fetchQuestions={fetchQuestions} 
                 />
             }
@@ -54,6 +56,8 @@ function App() {
                 setQuestions={setQuestions}
                 time={time}
                 setTime={setTime}
+                showStopWatch={showStopWatch}
+                setShowStopWatch={setShowStopWatch}
               />
             }
           />
@@ -61,11 +65,12 @@ function App() {
               <Result 
                 name={name} 
                 questions={questions} 
-                setWrongQuestions={setWrongQuestions}
                 score={score} 
                 setScore={setScore}
                 time={time}
                 setTime={setTime}
+                setWrongQuestions={setWrongQuestions}
+                setShowStopWatch={setShowStopWatch}
               />
             }
           />

@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 
-const StopWatch = ({time, setTime}) => {
+const StopWatch = ({time, setTime, showStopWatch}) => {
   const location = useLocation()
 
   useEffect(() => {
@@ -21,7 +21,13 @@ const StopWatch = ({time, setTime}) => {
 
   return (
     <div className="font-medium text-lg tracking-wide text-slate-500">
-      {formatedTime()}
+      {
+        showStopWatch 
+          ? (formatedTime())
+          : (
+            <div>React Quiz App</div>
+          )
+      }
     </div>
   )
 }

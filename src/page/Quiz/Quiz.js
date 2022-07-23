@@ -3,7 +3,17 @@ import Question from "../../component/question/Question";
 import StopWatch from "../../component/stopWatch/StopWatch";
 import AlertQuit from "../../component/dialog/AlertQuit";
 
-const Quiz = ({ questions, wrongQuestions, setWrongQuestions, score, setScore, time, setTime}) => {
+const Quiz = ({ 
+    questions, 
+    wrongQuestions, 
+    setWrongQuestions, 
+    score, 
+    setScore, 
+    time, 
+    setTime,
+    showStopWatch, 
+    setShowStopWatch,
+  }) => {
   const [options, setOptions] = useState()
   const [currQuestion, setCurrQuestion] = useState(0)
   const [selected, setSelected] = useState()
@@ -41,7 +51,7 @@ const Quiz = ({ questions, wrongQuestions, setWrongQuestions, score, setScore, t
                 </div>
 
                 <div>
-                  <StopWatch time={time} setTime={setTime} />
+                  <StopWatch time={time} setTime={setTime} showStopWatch={showStopWatch}/>
                 </div>
 
                 <div>
@@ -63,6 +73,7 @@ const Quiz = ({ questions, wrongQuestions, setWrongQuestions, score, setScore, t
                 setIsOpen={setIsOpen} 
                 currQuestion={currQuestion}
                 selected={selected}
+                setShowStopWatch={setShowStopWatch}
               />
 
               <Question

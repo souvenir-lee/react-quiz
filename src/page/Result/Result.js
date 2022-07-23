@@ -6,7 +6,16 @@ import HomeIcon from '@mui/icons-material/Home';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import ReplayIcon from '@mui/icons-material/Replay';
 
-const Result = ({ name, questions, score, setScore, time, setTime, setWrongQuestions }) => {
+const Result = ({ 
+    name, 
+    questions, 
+    score, 
+    setScore, 
+    time, 
+    setTime, 
+    setWrongQuestions,
+    setShowStopWatch
+  }) => {
   const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
 
@@ -17,6 +26,7 @@ const Result = ({ name, questions, score, setScore, time, setTime, setWrongQuest
   const handleGoHome = () => {
     setScore(0)
     setTime(0)
+    setShowStopWatch(false)
     navigate('/')
   }
 
