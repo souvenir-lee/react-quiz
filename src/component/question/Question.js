@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 const Question = ({
   currQuestion, 
   questions, 
+  wrongQuestions,
+  setWrongQuestions,
   options, 
   correct, 
   score, 
@@ -30,7 +32,7 @@ const Question = ({
   const handleCheck = (i, e) => {
     console.log('handleCheck i :>>',i)
     e.stopPropagation();
-    if(i === correct) setScore(score+1)
+    (i === correct) ? setScore(score+1) : setWrongQuestions([...wrongQuestions, currQuestion])
     setSelected(i)
     setIsDisabled(true)
     return

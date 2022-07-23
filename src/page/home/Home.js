@@ -121,10 +121,10 @@ const Home = ({ name, setName, fetchQuestions }) => {
           <div className="my-8">
             <div className="flex justify-between items-center">
               <div className="block font-sans text-md">Show the Stop watch</div>
-              <label htmlFor="check" className="bg-indigo-100 cursor-pointer relative w-10 h-4 rounded-full">
+              <label htmlFor="check" className="shadow bg-indigo-100 cursor-pointer relative w-10 h-4 rounded-full">
                 <input onClick={() => setShowStopWatch(!showStopWatch)} type="checkbox" id="check" className="sr-only peer"/>
                 <span 
-                  className="w-6 h-6 bg-indigo-400 absolute rounded-full -left-1 -top-1 peer-checked:bg-indigo-700 peer-checked:left-5 transition-all duration-300"
+                  className="w-6 h-6 shadow bg-indigo-400 absolute rounded-full -left-1 -top-1 peer-checked:bg-indigo-700 peer-checked:left-5 transition-all duration-300"
                 ></span>
               </label>
             </div>

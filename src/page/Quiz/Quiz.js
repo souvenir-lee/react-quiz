@@ -3,7 +3,7 @@ import Question from "../../component/question/Question";
 import StopWatch from "../../component/stopWatch/StopWatch";
 import AlertQuit from "../../component/dialog/AlertQuit";
 
-const Quiz = ({ questions, score, setScore, time, setTime}) => {
+const Quiz = ({ questions, wrongQuestions, setWrongQuestions, score, setScore, time, setTime}) => {
   const [options, setOptions] = useState()
   const [currQuestion, setCurrQuestion] = useState(0)
   const [selected, setSelected] = useState()
@@ -34,9 +34,9 @@ const Quiz = ({ questions, score, setScore, time, setTime}) => {
             <>
               <div className="my-5 flex justify-between">
                 <div className="font-sanse text-slate-500 w-56">
-                  <div className="font-light tracking-wide">
-                    <div>[Category]</div> 
-                    <div>{questions[currQuestion].category}</div>
+                  <div>
+                    <div className="font-light tracking-wide">[Category]</div> 
+                    <div className="font-medium tracking-wide">{questions[currQuestion].category}</div>
                   </div>
                 </div>
 
@@ -46,7 +46,7 @@ const Quiz = ({ questions, score, setScore, time, setTime}) => {
 
                 <div>
                   <div className="flex row-auto items-center">
-                    <div className="tracking-wide mr-5">Score : {score} / {questions.length}</div>
+                    <div className="text-slate-500 tracking-wide mr-5">Score : {score} / {questions.length}</div>
                     <button
                       type="button" 
                       onClick={onClickQuitDialog}
@@ -68,6 +68,8 @@ const Quiz = ({ questions, score, setScore, time, setTime}) => {
               <Question
                 currQuestion={currQuestion}
                 questions={questions}
+                wrongQuestions={wrongQuestions}
+                setWrongQuestions={setWrongQuestions}
                 options={options}
                 correct={questions[currQuestion]?.correct_answer}
                 score={score}

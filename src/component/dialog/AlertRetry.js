@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import { Transition, Dialog } from '@headlessui/react'
 
-const AlertRetry = ({ isOpen, setIsOpen, setScore, setTime }) => {
+const AlertRetry = ({ isOpen, setIsOpen, setScore, setTime, setWrongQuestions }) => {
   const navigate = useNavigate()
 
   function closeModal() {
@@ -16,6 +16,7 @@ const AlertRetry = ({ isOpen, setIsOpen, setScore, setTime }) => {
     setIsOpen(false)
     setScore(0)
     setTime(0)
+    setWrongQuestions([])
     navigate('/quiz')
   }
   

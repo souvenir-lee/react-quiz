@@ -20,7 +20,7 @@ const StopWatch = ({time, setTime}) => {
   }
 
   return (
-    <div className="font-medium text-lg tracking-wide">
+    <div className="font-medium text-lg tracking-wide text-slate-500">
       {formatedTime()}
     </div>
   )
